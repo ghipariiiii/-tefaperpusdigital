@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <header />  <!-- custom component-->
-    <slot />  <!-- page akan mengisi pada bagian ini-->
+  <div class="container-fluid">
+    <header/>
+    <slot />
   </div>
 </template>
