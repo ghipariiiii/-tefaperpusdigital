@@ -1,6 +1,8 @@
+
+import Header from '~/components/Header.vue';
 <template>
   <div class="container-fluid">
-    <header/>
+    <Header />
     <slot />
   </div>
 </template>

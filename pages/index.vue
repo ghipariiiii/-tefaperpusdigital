@@ -10,18 +10,41 @@
           </div>
         </nuxt-link>
       </div>
+      
       <div class="col-lg-6">
         <nuxt-link to="/buku">
-          <div class="card bg-buku rounded-5">
+          <div class="card bg-buku rounded-5 topright T ">
             <div class="card-body">
               <h2>CARI BUKU</h2>
             </div>
           </div>
         </nuxt-link>
       </div>
+  <div class="Container-fluid">
+    <div class="row justify-content-evenly rounded-3">
+      <div class="col-4">
+        <div class="card1">
+          <div class="raccing">
+            <h2> pengunjung</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <statistik/>
+      </div>
+      <div class="col-4">
+        <div class="raccing1">
+          <h2>Buku</h2>
+        </div>
+      </div>
+    </div>
+     
+      </div>
+      
     </div>
   </div>
 </template>
+
 
 <style scoped>
 .card {
@@ -29,13 +52,49 @@
   box-shadow: 1px 1px  10px #424242;
 }
 .card.bg-pengunjung {
-  background-image: url("../asset/img/bg kunjungan.(1).png");
+  background-image: url("../assets/img/bg-kunjungan.png");
   background-repeat: no-repeat;
   background-position: center center ;
   background-size: cover;
+  height: 353px ;
+  width: 336px;
 }
-.card.buku {
-  background:url("../asset/img/bg\ buku.png") no-repeat center center;
+.card.bg-buku {
+  background-image:url("../assets/img/bg-buku3.png") ;
   background-size: cover;
+  background-repeat:no-repeat ;
+  height: 353px ;
+  width: 336px;
+}
+.topright {
+  position: absolute;
+
+  right: 15px;
+}
+.T {
+  width: 100%;
+}
+.raccing {
+  margin-top: 50px;
+  width: 400px;
+  height: 100px;
+  box-shadow: 1px 1px 10px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:   #20D4BF;
+}
+.raccing1 {
+  margin-left: auto;
+  margin-top:50px ;
+  width: 400px;
+  height: 100px;
+  box-shadow: 1px 1px 10px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:   #20D4BF;
 }
 </style>
