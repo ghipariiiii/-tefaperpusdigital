@@ -5,29 +5,20 @@
         <h2 class="text-center my-4">BUKU</h2>
         <div class="my-3">
           <form @submit.prevent="getbooks">
-          
+            <input v-model="keyword" type="search" class="form-control rounded-5" placeholder="mau baca apa hari">
           </form>
-          <input type="search" class="form-control rounded-5" placeholder="mau baca apa hari">
         </div>
         <div class="my-3 text-munted">menampilkan 3 dari 3</div>
         <div class="row">
-          <div class="col-lgg-2">
-            <div v-for=" (books,i) in books" :key="i" class="col-lg-2">
-            <div class="card mb-3">
-            <div class="card-body">
-              <img  src="" class="cover" alt="buku.judul1">
-            </div>
-            </div>
-            </div>
-          </div>
-          <div class="col-lg-2">
+        
+          <div v-for="(book,i) in books" :key="i" class="col-lg-2">
             <div class="card mb-3">
               <div class="card-body">
-                <img src="/assets/img/pulang.jpg" class="buku" alt="buku2">
+                <img :src="book.cover" :alt="book.judul">
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -42,14 +33,15 @@ const books = ref([])
 const keyword = ref('')
 
 const getbooks = async () => {
-  const { data, error } = await supabase.from('buku').select('*,kategori(*)')
-  ilike('judul','%{keyword.value}%')
-  if (data) books.value = data
-
-  onMounted(() => {
-    getbooks()
-  })
+  const { data, error } = await supabase
+    .from('buku')
+    .select()
+    .ilike('judul', `%${keyword.value}%`)
+  if (data) books.value = data 
 }
+onMounted(() => {
+    getbooks()
+})
 
 </script>
 

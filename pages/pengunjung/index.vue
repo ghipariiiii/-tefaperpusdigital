@@ -34,12 +34,12 @@
 const supabase = useSupabaseClient()
 
 const visitors = ref([])
-const getpengunjung = async() =>{
-  const{data,error} =await supabase.form('pengunjung').select('*,KEANGGOTAAN(*),KEPERLUAN(*)')
+const getPengunjung = async() =>{
+  const{data,error} =await supabase.from('pengunjung').select(`*,KEANGGOTAAN(*),KEPERLUAN(*)`)
   if ( data )visitors.value=data
-  onMounted(()=> {
-    getpengunjung()
-
-  })
 }
+
+onMounted(()=> {
+    getPengunjung()
+  })
 </script>
