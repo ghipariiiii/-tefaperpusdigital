@@ -20,12 +20,16 @@
           </div>
         </nuxt-link>
       </div>
+      
   <div class="Container-fluid">
     <div class="row justify-content-evenly rounded-3">
       <div class="col-4">
         <div class="card1">
+         
           <div class="raccing">
-            <h2> pengunjung</h2>
+          <nuxt-link to="/pengunjung">
+            <h2 style="font-size: 50px; margin-right: 80px "><span class="no">{{ jml_pengunjung }}</span>Pengunjung</h2>
+          </nuxt-link>
           </div>
         </div>
       </div>
@@ -34,7 +38,9 @@
       </div>
       <div class="col-4">
         <div class="raccing1">
-          <h2>Buku</h2>
+          <nuxt-link to="/buku">
+            <h2 style="font-size: 50px; margin-right: 80px "><span class="no">{{ jml_buku }}</span>buku</h2>
+          </nuxt-link>
         </div>
       </div>
     </div>
@@ -44,6 +50,31 @@
     </div>
   </div>
 </template>
+<script setup>
+const supabase = useSupabaseClient()
+const jml_pengunjung = ref(0)
+const jml_buku = ref(0)
+
+async function getjml_pengunjung() {
+  const{error, data, count } = await supabase
+  .from("pengunjung")
+  .select('*', {count: 'exact' })
+  if (count) jml_pengunjung.value = count
+}
+
+async function getjml_buku() {
+  const{error, data, count } = await supabase
+  .from("buku")
+  .select('*', {count: 'exact' })
+  if (count) jml_buku.value = count
+}
+
+onMounted(() => {
+getjml_pengunjung()
+getjml_buku( )
+})
+
+</script>
 
 
 <style scoped>

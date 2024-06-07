@@ -4,7 +4,7 @@
     <div class="col-md-3">
       <div class="card">
         <div class="card-body">
-      <span v-if="buku.cover"><img src="buku.cover"  class="cover"    alt="buku.judul1"></span>
+      <span v-if="buku.cover"><img class="cover"  :src="buku.cover"  :alt="buku.judul"></span>
       <span v-else><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fralfvanveen.com%2Fen%2Fglossary%2Fplaceholder%2F&psig=AOvVaw3mJm82utBYelgvskF0E28i&ust=1714790433211000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCIj60tS68IUDFQAAAAAdAAAAABAE" alt="buku.judul1"></span>
         </div>
     </div>
@@ -13,9 +13,11 @@
       <div class="badge bg-primary p-2">{{ buku.kategori }}</div>
     
       <ul class="list-group list-group-flush">
+        <li class="list-group-item">judul: {{ buku.judul }}</li>
         <li class="list-group-item">penulis: {{ buku.penulis }}</li>
-        <li class="list-group-item">penerbit: {{ buku.penerbit }}</li>
-        <li class="list-group-item"> {{ buku.deskripsi }}</li>
+        <li class="list-group-item">deskripsi: {{ buku.deskripsi }}</li>
+        <li class="list-group-item">tahun_terbit: {{ buku.tahun_terbit }}</li>
+        <li class="list-group-item">deskripsi: {{ buku.deskripsi }}</li>
       </ul>
     
     </div>
@@ -44,3 +46,8 @@ onMounted(() =>{
   getbooksById()
 })
 </script>
+<style scoped>
+.cover{
+    width: 100%;
+}
+</style>
